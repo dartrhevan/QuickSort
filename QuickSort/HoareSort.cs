@@ -13,7 +13,7 @@ namespace QuickSort
 
         static void QuickSort(int[] array, int begin, int end)
         {
-            if (begin == end) return;
+            if (begin >= end) return;
             var selectedElement = array[end];
             var currentInd = begin;
             for (var i = begin; i < end; ++i)
