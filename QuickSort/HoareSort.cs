@@ -19,7 +19,7 @@ namespace QuickSort
             for (var i = begin; i < end; ++i)
             {
                 if (array[i] <= selectedElement)
-                    Swap(ref selectedElement, ref array[currentInd++]);
+                    Swap(ref array[i], ref array[currentInd++]);
             }
             Swap(ref array[currentInd], ref array[end]);
             if (currentInd > begin) QuickSort(array, begin, currentInd - 1);
