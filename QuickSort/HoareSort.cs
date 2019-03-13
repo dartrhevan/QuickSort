@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace QuickSort
 {
@@ -22,8 +23,19 @@ namespace QuickSort
                     Swap(ref array[i], ref array[currentInd++]);
             }
             Swap(ref array[currentInd], ref array[end]);
-            if (currentInd > begin) QuickSort(array, begin, currentInd - 1);
-            if (currentInd < end) QuickSort(array, currentInd + 1, end);
+            if (begin == 0 && end == array.Length)
+            {
+                Parallel.Invoke((() => {
+                    if (currentInd > begin) QuickSort(array, begin, currentInd - 1);
+                }), (() => {
+                    if (currentInd < end) QuickSort(array, currentInd + 1, end);
+                }));
+            }
+            else
+            {
+                if (currentInd > begin) QuickSort(array, begin, currentInd - 1);
+                if (currentInd < end) QuickSort(array, currentInd + 1, end);
+            }
         }
 
         static void Swap<T>(ref T element1, ref T element2)
