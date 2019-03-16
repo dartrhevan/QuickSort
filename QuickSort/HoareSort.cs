@@ -7,6 +7,10 @@ namespace QuickSort
 {
     public class HoareSort
     {
+        /// <summary>
+        /// Реализация алгоритма быстрой сортировки
+        /// </summary>
+        /// <param name="array"></param>
         public static void QuickSort(int[] array)
         {
             QuickSort(array, 0, array.Length - 1);
@@ -38,6 +42,12 @@ namespace QuickSort
             }
         }
 
+        /// <summary>
+        /// Замена значений 2 переменных
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="element1"></param>
+        /// <param name="element2"></param>
         static void Swap<T>(ref T element1, ref T element2)
         {
             var temp = element1;

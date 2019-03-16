@@ -6,7 +6,9 @@ namespace QuickSort
     [TestFixture]
     public class QuickSortTest
     {
-        /*Сортировка массива из трёх элементов. После сортировки второй элемент больше первого, третий больше второго*/
+        /// <summary>
+        /// Сортировка массива из трёх элементов. После сортировки второй элемент больше первого, третий больше второго
+        /// </summary>
         [Test]
         public void SortSimpleArray()
         {
@@ -14,7 +16,10 @@ namespace QuickSort
             HoareSort.QuickSort(array);
             Assert.That(array[0] < array[1] && array[1] < array[2], "Simple array sorting");
         }
-        /*Сортировка массива из 100 одинаковых числе работает корректно*/
+
+        /// <summary>
+        /// Сортировка массива из 100 одинаковых числе работает корректно
+        /// </summary>
         [Test]
         public void SortArrayEqualsElements()
         {
@@ -24,11 +29,12 @@ namespace QuickSort
                 Assert.That(n == array[0]);
         }
 
-        /*
-         *  Сортировка массива из 1000 случайных элементов.
-         *  Проверить что 10 случайных пар элементов массива после сортировки упорядочены
-         *  (из пары больший тот, чей индекс больше)
-         */
+
+        /// <summary>
+        /// Сортировка массива из 1000 случайных элементов.
+        /// Проверить что 10 случайных пар элементов массива после сортировки упорядочены
+        ///   (из пары больший тот, чей индекс больше)
+        /// </summary>
         [Test]
         public void SortNormalArray()
         {
@@ -40,7 +46,9 @@ namespace QuickSort
                             (array[indexes[i]] > array[indexes[1 + i]] && indexes[i] > indexes[1 + i]), "Normal array sorting");
         }
 
-        // Сортировка пустого массива работает корректно
+        /// <summary>
+        /// Сортировка пустого массива работает корректно
+        /// </summary>
         [Test]
         public void SortEmptyArray()
         {
@@ -48,7 +56,9 @@ namespace QuickSort
             HoareSort.QuickSort(array);
         }
 
-        //Сортировка массива из 1 500 000 000 элементов
+        /// <summary>
+        /// Сортировка массива из 1 500 000 000 элементов
+        /// </summary>
         [Test]
         public void SortHugeArray()
         {
@@ -58,11 +68,11 @@ namespace QuickSort
                 Assert.That(array[i - 1] < array[i]);
         }
 
-        static int[] GenerateRandomArray(int lenght, int maxEl = int.MaxValue)
+        static int[] GenerateRandomArray(int length, int maxEl = int.MaxValue)
         {
-            var random = new Random(DateTime.Now.Millisecond);
-            var array = new int[lenght];
-            for (var i = 0; i < lenght; ++i)
+            var random = new Random(50);
+            var array = new int[length];
+            for (var i = 0; i < length; ++i)
                 array[i] = random.Next(maxEl);
             return array;
         }
